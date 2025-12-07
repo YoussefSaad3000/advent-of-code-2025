@@ -31,23 +31,27 @@ public class Day1 implements Solver {
         int newCursor;
         int ans = 0;
         for (Instruction instruction : instructions) {
-            int rawSteps = instruction.steps() % 100;
+            int rawSteps = instruction.steps() % 100; // this is always positive
             int circles = instruction.steps() / 100;
             ans += circles;
             newCursor = cursor;
             switch (instruction.direction) {
                 case LEFT :
                     newCursor = newCursor - rawSteps;
-                    if (rawSteps != 0 && newCursor <= 0) {
+                    if (cursor != 0 && rawSteps != 0 && newCursor <= 0) {
                         ans += 1;
                     }
+                    break;
                 case RIGHT :
                     newCursor = newCursor + rawSteps;
-                    if (rawSteps != 0 && newCursor > 99) {
+                    if (cursor != 0 && rawSteps != 0 && newCursor > 99) {
                         ans += 1;
                     }
+                    break;
             }
-            cursor = (newCursor % 100);
+            cursor = arithmeticReminder(newCursor, -100);
+            // System.out.println(String.format("For instruction %s, cursor %d, ans
+            // %d",instruction, cursor, ans));
         }
         return ans;
     }
@@ -55,6 +59,15 @@ public class Day1 implements Solver {
     private List<Instruction> fetchInstruction(List<String> input) {
         return input.stream().map(line -> new Instruction(Direction.from(line.substring(0, 1)),
                         Integer.parseInt(line.substring(1)))).toList();
+    }
+
+    private int arithmeticReminder(int a, int b) {
+        // for now let us force b to be positive
+        int reminder = a % b;
+        if (reminder < 0) {
+            reminder += b;
+        }
+        return reminder;
     }
 
     record Instruction(Direction direction, int steps) {
