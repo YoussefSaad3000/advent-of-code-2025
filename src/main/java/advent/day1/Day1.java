@@ -3,7 +3,7 @@ package advent.day1;
 import advent.Solver;
 import java.util.List;
 
-public class Day1 implements Solver{
+public class Day1 implements Solver {
     @Override
     public int solve(List<String> input) {
         List<Instruction> instructions = fetchInstruction(input);

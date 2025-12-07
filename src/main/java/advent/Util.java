@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public final class Util{
+public final class Util {
     private Util() {
     }
 

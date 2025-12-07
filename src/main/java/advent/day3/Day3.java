@@ -3,7 +3,7 @@ package advent.day3;
 import advent.Solver;
 import java.util.*;
 
-public class Day3 implements Solver{
+public class Day3 implements Solver {
     @Override
     public int solve(List<String> input) {
         var batteries = constructBanks(input);

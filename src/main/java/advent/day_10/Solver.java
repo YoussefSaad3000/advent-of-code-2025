@@ -3,7 +3,7 @@ package advent.day_10;
 import java.io.File;
 import java.util.*;
 
-public class Solver{
+public class Solver {
     private final int N;
     private final int M;
 
