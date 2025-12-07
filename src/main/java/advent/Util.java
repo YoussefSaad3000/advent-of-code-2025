@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public final class Util {
-    private Util () {
+public final class Util{
+    private Util() {
     }
+
     public static List<String> readFiles(String fileName) {
         File file;
         try {

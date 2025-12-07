@@ -1,11 +1,9 @@
 package advent.day3;
 
 import advent.Solver;
-
 import java.util.*;
-import java.util.stream.Collectors;
 
-public class Day3 implements Solver {
+public class Day3 implements Solver{
     @Override
     public int solve(List<String> input) {
         var batteries = constructBanks(input);
@@ -15,16 +13,15 @@ public class Day3 implements Solver {
 
     private int maxJoltage(List<Integer> bank) {
         int decimal = 0, unit = 0;
-        for(int num : bank) {
+        for (int num : bank) {
             if (unit > decimal) {
                 decimal = unit;
                 unit = num;
-            } else if ( num > unit) {
+            } else if (num > unit) {
                 unit = num;
             }
         }
         return decimal * 10 + unit;
-
     }
 
     public static List<Integer> bigguest(List<Integer> bank, int k) {
@@ -32,9 +29,11 @@ public class Day3 implements Solver {
         var N = bank.size();
         for (int i = 0; i < N; i++) {
             var battery = bank.get(i);
-          // we pop as many elemenet as we can given that the bank still has batteries if our batter is big
+            // we pop as many elemenet as we can given that the bank still has batteries if
+            // our batter is
+            // big
             // k - deque size is the size to be filled
-            while (!deque.isEmpty() && deque.peekLast() < battery && (k-deque.size() <= N-i-1)) {
+            while (!deque.isEmpty() && deque.peekLast() < battery && (k - deque.size() <= N - i - 1)) {
                 deque.pollLast();
             }
 
@@ -48,5 +47,4 @@ public class Day3 implements Solver {
     private List<List<Integer>> constructBanks(List<String> input) {
         return input.stream().map(line -> Arrays.stream(line.split("")).map(Integer::parseInt).toList()).toList();
     }
-
 }
