@@ -1,4 +1,4 @@
-package advent.Day6;
+package advent.day6;
 
 import advent.Solver;
 import java.util.List;

@@ -36,4 +36,15 @@ public final class Util {
 
     public record Pair<A, B>(A first, B second) {
     }
+
+    static public char[][] buildGrid(List<String> input) {
+        int n = input.size();
+        int m = input.get(0).length();
+        char[][] chars = new char[n][m];
+        for(int i = 0;i < n; i++) {
+            input.get(i).getChars(0, m, chars[i], 0);
+
+        }
+        return chars;
+    }
 }

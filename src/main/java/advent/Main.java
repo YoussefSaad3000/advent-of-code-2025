@@ -1,17 +1,15 @@
 package advent;
 
-import advent.Day6.Day6;
-import advent.day1.Day1;
-import advent.day2.Day2;
 import advent.day3.Day3;
+import advent.day4.Day4;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome! " + System.getProperty("user.dir"));
 
-        var data = Util.readFiles("input3");
+        var data = Util.readFiles("input4");
         System.out.println(data);
-        Solver solver = new Day3();
+        Solver solver = new Day4();
 
         System.out.println(solver.solve(data));
     }
