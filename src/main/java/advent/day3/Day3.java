@@ -8,9 +8,10 @@ public class Day3 implements Solver {
     public long solve(List<String> input) {
         var batteries = constructBanks(input);
         System.out.println(batteries);
-        return batteries.stream().mapToInt(this::maxJoltage).sum();
+        return batteries.stream().mapToLong(this::maxJoltage12).sum();
     }
 
+    // Part 1
     private int maxJoltage(List<Integer> bank) {
         int decimal = 0, unit = 0;
         for (int num : bank) {
@@ -22,6 +23,18 @@ public class Day3 implements Solver {
             }
         }
         return decimal * 10 + unit;
+    }
+
+    // Part 2
+    private long maxJoltage12(List<Integer> bank) {
+        var big = bigguest(bank, 12);
+        long res = 0;
+        int i = 0;
+        while (i < 12 ) {
+            res = res*10 + big.get(i);
+            i+=1;
+        }
+        return res;
     }
 
     public static List<Integer> bigguest(List<Integer> bank, int k) {
