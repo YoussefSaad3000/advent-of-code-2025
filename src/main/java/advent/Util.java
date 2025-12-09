@@ -1,5 +1,7 @@
 package advent;
 
+import advent.day2.Day2;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +32,8 @@ public final class Util {
         }
         System.out.printf("Input File %s has %d lines%n", fileName, data.size());
         return data;
+    }
+
+    public record Pair<A, B>(A first, B second) {
     }
 }

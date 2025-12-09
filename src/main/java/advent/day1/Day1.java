@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Day1 implements Solver {
     @Override
-    public int solve(List<String> input) {
+    public long solve(List<String> input) {
         List<Instruction> instructions = fetchInstruction(input);
         return solvePart2(instructions);
     }

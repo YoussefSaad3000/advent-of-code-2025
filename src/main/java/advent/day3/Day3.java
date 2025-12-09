@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Day3 implements Solver {
     @Override
-    public int solve(List<String> input) {
+    public long solve(List<String> input) {
         var batteries = constructBanks(input);
         System.out.println(batteries);
         return batteries.stream().mapToInt(this::maxJoltage).sum();
