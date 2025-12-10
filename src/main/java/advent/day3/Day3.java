@@ -30,9 +30,9 @@ public class Day3 implements Solver {
         var big = bigguest(bank, 12);
         long res = 0;
         int i = 0;
-        while (i < 12 ) {
-            res = res*10 + big.get(i);
-            i+=1;
+        while (i < 12) {
+            res = res * 10 + big.get(i);
+            i += 1;
         }
         return res;
     }

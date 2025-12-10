@@ -20,7 +20,8 @@ public class Day2 implements Solver {
         });
 
         pairs.forEach(pair -> {
-            // For first part only change 8 to 3 to only account for numbers that could be split into 2 identical parts
+            // For first part only change 8 to 3 to only account for numbers that could be
+            // split into 2 identical parts
             IntStream.range(2, 8).forEach(
                             i -> results.addAll(getPalindromesInsideRangeWithNSplit(pair.first(), pair.second(), i)));
         });
