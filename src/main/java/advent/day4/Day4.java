@@ -21,7 +21,7 @@ public class Day4 implements Solver {
         return solvePart2(map);
     }
 
-    private long solve(char[][] map) {
+    private long solvePart1(char[][] map) {
         long res = 0;
 
         for (int i = 0; i < N; i++) {
